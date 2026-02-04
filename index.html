@@ -1,148 +1,153 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEGEND | La Paz Gym</title>
+    <title>LEGEND | High Performance Gym La Paz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Inter', sans-serif; }
-        .accent-color { color: #facc15; } /* Jaune Néon */
-        .bg-accent { background-color: #facc15; }
-        .card-dark { background-color: #1a1a1a; border: 1px solid #333; }
-        .flag-btn { cursor: pointer; transition: transform 0.2s; }
-        .flag-btn:hover { transform: scale(1.2); }
+        :root { --accent: #facc15; }
+        body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .font-legend { font-family: 'Archivo Black', sans-serif; }
+        .bg-card { background-color: #0f0f0f; border: 1px solid #1f1f1f; }
+        .btn-glow:hover { box-shadow: 0 0 20px rgba(250, 204, 21, 0.4); }
+        .flag-icon { width: 24px; height: 24px; cursor: pointer; transition: transform 0.2s; border-radius: 4px; }
+        .flag-icon:hover { transform: scale(1.2); }
     </style>
 </head>
 <body>
 
-    <header class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
-        <div class="text-3xl font-black tracking-tighter">LEGEND</div>
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5 px-4 md:px-8 py-4 flex justify-between items-center">
+        <div class="text-2xl font-black tracking-tighter font-legend">LEGEND</div>
         
-        <div class="hidden md:flex items-center space-x-6">
-            <div class="flex space-x-4 text-xl border-r border-white/20 pr-6">
-                <a href="#" class="hover:text-yellow-400"><i class="fab fa-tiktok"></i></a>
-                <a href="#" class="hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-yellow-400"><i class="fab fa-facebook"></i></a>
-                <a href="https://wa.me/votre_numero" class="hover:text-yellow-400"><i class="fab fa-whatsapp"></i></a>
+        <div class="flex items-center space-x-4 md:space-x-8">
+            <div class="hidden sm:flex items-center space-x-4 border-r border-white/10 pr-6">
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/521234567890" class="text-gray-400 hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <div class="flex space-x-2">
-                <span onclick="translateTo('es')" class="flag-btn">🇪🇸</span>
-                <span onclick="translateTo('en')" class="flag-btn">🇺🇸</span>
-                <span onclick="translateTo('fr')" class="flag-btn">🇫🇷</span>
-                <span onclick="translateTo('it')" class="flag-btn">🇮🇹</span>
-                <span onclick="translateTo('de')" class="flag-btn">🇩🇪</span>
-                <span onclick="translateTo('cn')" class="flag-btn">🇨🇳</span>
+            
+            <div class="flex items-center space-x-2 bg-zinc-900 p-2 rounded-lg">
+                <img src="https://flagcdn.com/w40/mx.png" onclick="updateLang('es')" class="flag-icon" alt="ES">
+                <img src="https://flagcdn.com/w40/us.png" onclick="updateLang('en')" class="flag-icon" alt="EN">
+                <img src="https://flagcdn.com/w40/fr.png" onclick="updateLang('fr')" class="flag-icon" alt="FR">
+                <img src="https://flagcdn.com/w40/it.png" onclick="updateLang('it')" class="flag-icon" alt="IT">
+                <img src="https://flagcdn.com/w40/de.png" onclick="updateLang('de')" class="flag-icon" alt="DE">
+                <img src="https://flagcdn.com/w40/cn.png" onclick="updateLang('cn')" class="flag-icon" alt="CN">
             </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
-        <h1 id="hero-title" class="text-6xl md:text-8xl font-black mb-4 tracking-tighter uppercase">LEGEND</h1>
-        <p id="hero-subtitle" class="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl">Devenez votre propre légende.</p>
-        <a href="#pricing" class="bg-accent text-black px-10 py-4 font-bold text-lg rounded-full hover:scale-105 transition">START NOW</a>
-    </section>
+    <section class="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-full bg-zinc-900 flex items-center justify-center border-4 border-dashed border-zinc-800 p-10">
+                <span class="text-zinc-700 font-bold uppercase tracking-widest">[PHOTO/VIDÉO BANNIÈRE : Vue d'ensemble de la salle avec éclairage dramatique, montrant l'alignement des machines et l'espace vide pour donner envie d'entrer]</span>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#050505]"></div>
+        </div>
 
-    <section id="pricing" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-            <div class="card-dark p-10 rounded-2xl text-center">
-                <h3 id="daily-title" class="text-2xl font-bold mb-4">DAY PASS</h3>
-                <div class="text-5xl font-black mb-4">200<span class="text-lg">MXN</span></div>
-                <p id="daily-desc" class="text-gray-400 mb-6">Accès immédiat. Sans engagement.</p>
-                <a href="https://wa.me/votre_numero" class="block w-full border border-white py-3 rounded-lg font-bold hover:bg-white hover:text-black transition">BUY PASS</a>
-            </div>
-            <div class="card-dark p-10 rounded-2xl text-center border-yellow-400 border-2">
-                <h3 id="monthly-title" class="text-2xl font-bold mb-4">MONTHLY</h3>
-                <div class="text-5xl font-black mb-4 text-yellow-400">700<span class="text-lg">MXN</span></div>
-                <p id="monthly-desc" class="text-gray-400 mb-6">Accès illimité. Performance totale.</p>
-                <a href="https://wa.me/votre_numero" class="block w-full bg-accent text-black py-3 rounded-lg font-bold hover:scale-105 transition">BECOME A MEMBER</a>
-            </div>
+        <div class="relative z-10">
+            <h1 id="hero-title" class="text-7xl md:text-9xl font-black mb-4 tracking-tighter font-legend">LEGEND</h1>
+            <p id="hero-subtitle" class="text-xl md:text-2xl text-zinc-400 font-light tracking-wide uppercase">Devenez votre propre légende.</p>
         </div>
     </section>
 
-    <section class="py-20 bg-zinc-900 px-6 text-center">
-        <h2 id="coach-title" class="text-4xl font-black mb-6 uppercase">COACHING 1-1</h2>
-        <p id="coach-desc" class="text-gray-400 max-w-xl mx-auto mb-8">Un coach expert présent en permanence. Accompagnement sur mesure pour des résultats garantis.</p>
-        <a href="https://wa.me/votre_numero?text=Bonjour%20LEGEND%2C%20je%20souhaite%20des%20infos%20sur%20le%20coaching" class="bg-white text-black px-8 py-3 font-bold rounded-lg hover:bg-yellow-400 transition">RÉSERVER UNE SÉANCE</a>
-    </section>
-
-    <section class="py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 id="map-title" class="text-3xl font-black mb-8 text-center uppercase">LOCATION</h2>
-            <div class="h-96 w-full rounded-2xl overflow-hidden mb-8 grayscale hover:grayscale-0 transition duration-500">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.75!2d-110.31!3d24.15" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
+    <section id="pricing" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <div class="bg-card p-12 rounded-3xl flex flex-col justify-between hover:border-yellow-400/50 transition duration-500">
+                <div>
+                    <h3 id="daily-title" class="text-zinc-500 font-bold uppercase tracking-widest mb-4">Day Pass</h3>
+                    <div class="text-6xl font-black mb-6">200<span class="text-xl">MXN</span></div>
+                    <p id="daily-desc" class="text-zinc-400 mb-8">Accès immédiat. Sans engagement. Idéal pour les sportifs de passage.</p>
+                </div>
+                <a href="https://wa.me/521234567890?text=Hola%20LEGEND%2C%20quiero%20un%20pase%20por%20día" class="w-full bg-white text-black py-4 rounded-xl font-black text-center btn-glow transition uppercase">Acheter mon pass</a>
             </div>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Calle+Ignacio+Altamirano+224,+Zona+Central,+23000+La+Paz,+B.C.S.,+Mexico" 
-               class="block bg-accent text-black text-center py-5 rounded-xl font-black text-xl hover:scale-[1.02] transition">
-               <i class="fas fa-location-arrow mr-2"></i> <span id="btn-guide">GUIDE-MOI À LA SALLE</span>
-            </a>
+            
+            <div class="bg-card p-12 rounded-3xl border-yellow-400 flex flex-col justify-between transform md:-translate-y-4 shadow-2xl shadow-yellow-400/10">
+                <div>
+                    <span class="bg-yellow-400 text-black px-3 py-1 text-xs font-black rounded-full uppercase mb-4 inline-block">Best Seller</span>
+                    <h3 id="monthly-title" class="text-white font-bold uppercase tracking-widest mb-4 mt-2">Monthly Member</h3>
+                    <div class="text-6xl font-black mb-6 text-yellow-400">700<span class="text-xl">MXN</span></div>
+                    <p id="monthly-desc" class="text-zinc-400 mb-8">Accès illimité. Équipement premium. La meilleure option pour les locaux.</p>
+                </div>
+                <a href="https://wa.me/521234567890?text=Hola%20LEGEND%2C%20quiero%20hacerme%20miembro%20mensual" class="w-full bg-yellow-400 text-black py-4 rounded-xl font-black text-center btn-glow transition uppercase">Devenir membre</a>
+            </div>
+        </div>
+
+        <div class="w-full h-80 bg-zinc-900 rounded-3xl flex items-center justify-center border-4 border-dashed border-zinc-800 p-8 text-center mb-24">
+            <span class="text-zinc-700 font-bold uppercase tracking-widest">[PHOTO DÉTAIL : Gros plan sur le grain des poids en fonte ou le logo d'une machine premium pour justifier la qualité]</span>
         </div>
     </section>
 
-    <a href="https://wa.me/votre_numero" class="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl hover:scale-110 transition z-50">
+    <section class="bg-zinc-900/30 py-24 px-6 border-y border-white/5">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2">
+                <div class="aspect-square bg-zinc-800 rounded-2xl flex items-center justify-center border-4 border-dashed border-zinc-700 p-10 text-center">
+                    <span class="text-zinc-600 font-bold uppercase tracking-widest">[PHOTO COACH : Le coach en pleine correction technique sur le plateau, montrant l'accompagnement 1-1]</span>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <h2 id="coach-title" class="text-5xl font-black mb-8 font-legend tracking-tighter uppercase">COACHING 1-1</h2>
+                <p id="coach-desc" class="text-xl text-zinc-400 mb-10 leading-relaxed font-light">Un coach expert présent en permanence. Accompagnement sur mesure pour des résultats garantis.</p>
+                <div class="space-y-4">
+                    <a href="https://wa.me/521234567890?text=Hola%20LEGEND%2C%20me%20interesa%20el%20coaching%201-1" class="inline-block bg-white text-black px-12 py-4 rounded-xl font-black btn-glow transition uppercase">Réserver une séance</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 max-w-5xl mx-auto text-center">
+        <h2 id="map-title" class="text-3xl font-black mb-12 font-legend uppercase">LOCALISATION</h2>
+        <div class="rounded-3xl overflow-hidden border border-white/10 h-96 mb-8 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-700">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.7072635905146!2d-110.316499!3d24.148784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86afd30999999999%3A0x9999999999999999!2sCalle%20Ignacio%20Altamirano%20224%2C%20Zona%20Central%2C%2023000%20La%20Paz%2C%20B.C.S.!5e0!3m2!1sfr!2smx!4v1700000000000!5m2!1sfr!2smx" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Calle+Ignacio+Altamirano+224,+Zona+Central,+23000+La+Paz,+B.C.S.,+Mexico" 
+           target="_blank"
+           class="inline-block bg-accent text-black px-12 py-5 rounded-2xl font-black text-xl btn-glow transition uppercase">
+            <i class="fas fa-location-arrow mr-3"></i> <span id="btn-guide">GUIDE-MOI À LA SALLE</span>
+        </a>
+    </section>
+
+    <a href="https://wa.me/521234567890" class="fixed bottom-8 right-8 bg-green-500 w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl hover:scale-110 transition z-50">
         <i class="fab fa-whatsapp text-white"></i>
     </a>
 
-    <footer class="py-10 border-t border-white/10 text-center text-gray-500 text-sm">
-        <p>© 2026 LEGEND GYM - LA PAZ, MEXICO</p>
-        <div class="mt-4 flex justify-center space-x-4">
-            <a href="#">TikTok</a><a href="#">Instagram</a><a href="#">Facebook</a>
+    <footer class="py-12 border-t border-white/5 text-center px-6">
+        <div class="flex justify-center space-x-8 mb-8 text-xl text-zinc-500">
+            <a href="#" class="hover:text-white"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hover:text-white"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/521234567890" class="hover:text-white"><i class="fab fa-whatsapp"></i></a>
         </div>
+        <p class="text-zinc-600 text-xs font-bold uppercase tracking-widest">© 2026 LEGEND GYM | Calle Ignacio Altamirano 224, La Paz, Mexico</p>
     </footer>
 
     <script>
-        const translations = {
-            fr: {
-                heroTitle: "LEGEND",
-                heroSub: "Devenez votre propre légende.",
-                dailyT: "PASS JOURNÉE",
-                dailyD: "Accès immédiat. Sans engagement.",
-                monthlyT: "MENSUEL",
-                monthlyD: "Accès illimité. Performance totale.",
-                coachT: "COACHING 1-1",
-                coachD: "Coach présent en permanence. Accompagnement sur mesure.",
-                guide: "GUIDE-MOI À LA SALLE"
-            },
-            en: {
-                heroTitle: "LEGEND",
-                heroSub: "Become your own legend.",
-                dailyT: "DAY PASS",
-                dailyD: "Instant access. No strings attached.",
-                monthlyT: "MONTHLY",
-                monthlyD: "Unlimited access. Total performance.",
-                coachT: "1-1 COACHING",
-                coachD: "Expert coach always on site. Tailored results.",
-                guide: "GUIDE ME TO THE GYM"
-            },
-            es: {
-                heroTitle: "LEGEND",
-                heroSub: "Conviértete en tu propia leyenda.",
-                dailyT: "PASE POR DÍA",
-                dailyD: "Acceso inmediato. Sin compromiso.",
-                monthlyT: "MENSUAL",
-                monthlyD: "Acceso ilimitado. Rendimiento total.",
-                coachT: "COACHING 1-1",
-                coachD: "Coach experto presente siempre. Resultados garantizados.",
-                guide: "LLÉVAME AL GIMNASIO"
-            }
-            // Ajoutez IT, DE, CN ici sur le même modèle
+        const texts = {
+            es: { heroS: "Conviértete en tu propia leyenda.", dailyT: "Pase por Día", dailyD: "Acceso inmediato. Sin compromiso. Ideal para deportistas de paso.", monthlyT: "Mensual", monthlyD: "Acceso ilimitado. Equipo premium. La mejor opción local.", coachT: "COACHING 1-1", coachD: "Un coach experto presente permanentemente. Resultados garantizados.", mapT: "LOCALIZACIÓN", guide: "LLÉVAME AL GIMNASIO" },
+            en: { heroS: "Become your own legend.", dailyT: "Day Pass", dailyD: "Instant access. No strings attached. Perfect for travelers.", monthlyT: "Monthly", monthlyD: "Unlimited access. Premium equipment. Best local option.", coachT: "1-1 COACHING", coachD: "Expert coach always on site. Tailored coaching for guaranteed results.", mapT: "LOCATION", guide: "GUIDE ME TO THE GYM" },
+            fr: { heroS: "Devenez votre propre légende.", dailyT: "Pass Journée", dailyD: "Accès immédiat. Sans engagement. Idéal pour les sportifs de passage.", monthlyT: "Mensuel", monthlyD: "Accès illimité. Équipement premium. La meilleure option locale.", coachT: "COACHING 1-1", coachD: "Coach expert présent en permanence. Résultats garantis.", mapT: "LOCALISATION", guide: "GUIDE-MOI À LA SALLE" },
+            it: { heroS: "Diventa la tua leggenda.", dailyT: "Pass Giornaliero", dailyD: "Accesso immediato. Senza impegno.", monthlyT: "Mensile", monthlyD: "Accesso illimitato. Attrezzatura premium.", coachT: "COACHING 1-1", coachD: "Coach esperto sempre presente. Risultati garantiti.", mapT: "LOCALIZZAZIONE", guide: "GUIDAMI IN PALESTRA" },
+            de: { heroS: "Werde zu deiner eigenen Legende.", dailyT: "Tagespass", dailyD: "Sofortiger Zugang. Ohne Verpflichtung.", monthlyT: "Monatlich", monthlyD: "Unbegrenzter Zugang. Premium-Ausrüstung.", coachT: "1-1 COACHING", coachD: "Experten-Coach ständig vor Ort. Garantierte Ergebnisse.", mapT: "STANDORT", guide: "BRING MICH ZUM GYM" },
+            cn: { heroS: "成为你自己的传奇。", dailyT: "单日通票", dailyD: "即时访问。无需承诺。", monthlyT: "月度会员", monthlyD: "无限次访问。高端设备。", coachT: "一对一辅导", coachD: "专家教练常驻。保证效果。", mapT: "位置", guide: "指引我前往健身房" }
         };
 
-        function translateTo(lang) {
-            const t = translations[lang] || translations['en'];
-            document.getElementById('hero-title').innerText = t.heroTitle;
-            document.getElementById('hero-subtitle').innerText = t.heroSub;
-            document.getElementById('daily-title').innerText = t.dailyT;
-            document.getElementById('daily-desc').innerText = t.dailyD;
-            document.getElementById('monthly-title').innerText = t.monthlyT;
-            document.getElementById('monthly-desc').innerText = t.monthlyD;
-            document.getElementById('coach-title').innerText = t.coachT;
-            document.getElementById('coach-desc').innerText = t.coachD;
-            document.getElementById('btn-guide').innerText = t.guide;
+        function updateLang(lang) {
+            document.getElementById('hero-subtitle').innerText = texts[lang].heroS;
+            document.getElementById('daily-title').innerText = texts[lang].dailyT;
+            document.getElementById('daily-desc').innerText = texts[lang].dailyD;
+            document.getElementById('monthly-title').innerText = texts[lang].monthlyT;
+            document.getElementById('monthly-desc').innerText = texts[lang].monthlyD;
+            document.getElementById('coach-title').innerText = texts[lang].coachT;
+            document.getElementById('coach-desc').innerText = texts[lang].coachD;
+            document.getElementById('map-title').innerText = texts[lang].mapT;
+            document.getElementById('btn-guide').innerText = texts[lang].guide;
         }
     </script>
 </body>
