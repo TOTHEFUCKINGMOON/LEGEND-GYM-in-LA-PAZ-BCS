@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGEND | La Paz Gym</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Inter', sans-serif; }
+        .accent-color { color: #facc15; } /* Jaune Néon */
+        .bg-accent { background-color: #facc15; }
+        .card-dark { background-color: #1a1a1a; border: 1px solid #333; }
+        .flag-btn { cursor: pointer; transition: transform 0.2s; }
+        .flag-btn:hover { transform: scale(1.2); }
+    </style>
+</head>
+<body>
+
+    <header class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
+        <div class="text-3xl font-black tracking-tighter">LEGEND</div>
+        
+        <div class="hidden md:flex items-center space-x-6">
+            <div class="flex space-x-4 text-xl border-r border-white/20 pr-6">
+                <a href="#" class="hover:text-yellow-400"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-yellow-400"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/votre_numero" class="hover:text-yellow-400"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="flex space-x-2">
+                <span onclick="translateTo('es')" class="flag-btn">🇪🇸</span>
+                <span onclick="translateTo('en')" class="flag-btn">🇺🇸</span>
+                <span onclick="translateTo('fr')" class="flag-btn">🇫🇷</span>
+                <span onclick="translateTo('it')" class="flag-btn">🇮🇹</span>
+                <span onclick="translateTo('de')" class="flag-btn">🇩🇪</span>
+                <span onclick="translateTo('cn')" class="flag-btn">🇨🇳</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+        <h1 id="hero-title" class="text-6xl md:text-8xl font-black mb-4 tracking-tighter uppercase">LEGEND</h1>
+        <p id="hero-subtitle" class="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl">Devenez votre propre légende.</p>
+        <a href="#pricing" class="bg-accent text-black px-10 py-4 font-bold text-lg rounded-full hover:scale-105 transition">START NOW</a>
+    </section>
+
+    <section id="pricing" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="card-dark p-10 rounded-2xl text-center">
+                <h3 id="daily-title" class="text-2xl font-bold mb-4">DAY PASS</h3>
+                <div class="text-5xl font-black mb-4">200<span class="text-lg">MXN</span></div>
+                <p id="daily-desc" class="text-gray-400 mb-6">Accès immédiat. Sans engagement.</p>
+                <a href="https://wa.me/votre_numero" class="block w-full border border-white py-3 rounded-lg font-bold hover:bg-white hover:text-black transition">BUY PASS</a>
+            </div>
+            <div class="card-dark p-10 rounded-2xl text-center border-yellow-400 border-2">
+                <h3 id="monthly-title" class="text-2xl font-bold mb-4">MONTHLY</h3>
+                <div class="text-5xl font-black mb-4 text-yellow-400">700<span class="text-lg">MXN</span></div>
+                <p id="monthly-desc" class="text-gray-400 mb-6">Accès illimité. Performance totale.</p>
+                <a href="https://wa.me/votre_numero" class="block w-full bg-accent text-black py-3 rounded-lg font-bold hover:scale-105 transition">BECOME A MEMBER</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-zinc-900 px-6 text-center">
+        <h2 id="coach-title" class="text-4xl font-black mb-6 uppercase">COACHING 1-1</h2>
+        <p id="coach-desc" class="text-gray-400 max-w-xl mx-auto mb-8">Un coach expert présent en permanence. Accompagnement sur mesure pour des résultats garantis.</p>
+        <a href="https://wa.me/votre_numero?text=Bonjour%20LEGEND%2C%20je%20souhaite%20des%20infos%20sur%20le%20coaching" class="bg-white text-black px-8 py-3 font-bold rounded-lg hover:bg-yellow-400 transition">RÉSERVER UNE SÉANCE</a>
+    </section>
+
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 id="map-title" class="text-3xl font-black mb-8 text-center uppercase">LOCATION</h2>
+            <div class="h-96 w-full rounded-2xl overflow-hidden mb-8 grayscale hover:grayscale-0 transition duration-500">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.75!2d-110.31!3d24.15" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Calle+Ignacio+Altamirano+224,+Zona+Central,+23000+La+Paz,+B.C.S.,+Mexico" 
+               class="block bg-accent text-black text-center py-5 rounded-xl font-black text-xl hover:scale-[1.02] transition">
+               <i class="fas fa-location-arrow mr-2"></i> <span id="btn-guide">GUIDE-MOI À LA SALLE</span>
+            </a>
+        </div>
+    </section>
+
+    <a href="https://wa.me/votre_numero" class="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl hover:scale-110 transition z-50">
+        <i class="fab fa-whatsapp text-white"></i>
+    </a>
+
+    <footer class="py-10 border-t border-white/10 text-center text-gray-500 text-sm">
+        <p>© 2026 LEGEND GYM - LA PAZ, MEXICO</p>
+        <div class="mt-4 flex justify-center space-x-4">
+            <a href="#">TikTok</a><a href="#">Instagram</a><a href="#">Facebook</a>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            fr: {
+                heroTitle: "LEGEND",
+                heroSub: "Devenez votre propre légende.",
+                dailyT: "PASS JOURNÉE",
+                dailyD: "Accès immédiat. Sans engagement.",
+                monthlyT: "MENSUEL",
+                monthlyD: "Accès illimité. Performance totale.",
+                coachT: "COACHING 1-1",
+                coachD: "Coach présent en permanence. Accompagnement sur mesure.",
+                guide: "GUIDE-MOI À LA SALLE"
+            },
+            en: {
+                heroTitle: "LEGEND",
+                heroSub: "Become your own legend.",
+                dailyT: "DAY PASS",
+                dailyD: "Instant access. No strings attached.",
+                monthlyT: "MONTHLY",
+                monthlyD: "Unlimited access. Total performance.",
+                coachT: "1-1 COACHING",
+                coachD: "Expert coach always on site. Tailored results.",
+                guide: "GUIDE ME TO THE GYM"
+            },
+            es: {
+                heroTitle: "LEGEND",
+                heroSub: "Conviértete en tu propia leyenda.",
+                dailyT: "PASE POR DÍA",
+                dailyD: "Acceso inmediato. Sin compromiso.",
+                monthlyT: "MENSUAL",
+                monthlyD: "Acceso ilimitado. Rendimiento total.",
+                coachT: "COACHING 1-1",
+                coachD: "Coach experto presente siempre. Resultados garantizados.",
+                guide: "LLÉVAME AL GIMNASIO"
+            }
+            // Ajoutez IT, DE, CN ici sur le même modèle
+        };
+
+        function translateTo(lang) {
+            const t = translations[lang] || translations['en'];
+            document.getElementById('hero-title').innerText = t.heroTitle;
+            document.getElementById('hero-subtitle').innerText = t.heroSub;
+            document.getElementById('daily-title').innerText = t.dailyT;
+            document.getElementById('daily-desc').innerText = t.dailyD;
+            document.getElementById('monthly-title').innerText = t.monthlyT;
+            document.getElementById('monthly-desc').innerText = t.monthlyD;
+            document.getElementById('coach-title').innerText = t.coachT;
+            document.getElementById('coach-desc').innerText = t.coachD;
+            document.getElementById('btn-guide').innerText = t.guide;
+        }
+    </script>
+</body>
+</html>
