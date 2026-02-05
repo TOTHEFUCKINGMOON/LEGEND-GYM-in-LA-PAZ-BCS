@@ -16,7 +16,7 @@
         .btn-glow:hover { box-shadow: 0 0 20px rgba(250, 204, 21, 0.4); }
         .flag-icon { width: 24px; height: 18px; cursor: pointer; transition: transform 0.2s; border-radius: 4px; }
         
-        #lang-drawer { display: none; position: absolute; top: 100%; right: 0; background: #111; border: 1px solid #333; padding: 10px; border-radius: 8px; flex-direction: column; gap: 8px; z-index: 100; }
+        #lang-drawer { display: none; position: absolute; top: 100%; right: 0; background: #111; border: 1px solid #333; padding: 10px; border-radius: 8px; flex-direction: column; gap: 8px; z-index: 100; min-width: 45px; align-items: center; }
         #lang-drawer.active { display: flex; }
 
         .comparison-slider { position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 24px; }
@@ -40,12 +40,13 @@
         <div class="flex items-center space-x-3 relative">
             <img src="https://flagcdn.com/w40/mx.png" onclick="updateLang('es')" class="flag-icon" alt="ES">
             <img src="https://flagcdn.com/w40/us.png" onclick="updateLang('en')" class="flag-icon" alt="EN">
-            <button onclick="toggleLangDrawer()" class="text-white"><i class="fas fa-chevron-down text-xs"></i></button>
+            <button onclick="toggleLangDrawer()" class="text-white p-1"><i class="fas fa-chevron-down text-xs"></i></button>
             
             <div id="lang-drawer">
                 <img src="https://flagcdn.com/w40/fr.png" onclick="updateLang('fr')" class="flag-icon" alt="FR">
                 <img src="https://flagcdn.com/w40/it.png" onclick="updateLang('it')" class="flag-icon" alt="IT">
                 <img src="https://flagcdn.com/w40/de.png" onclick="updateLang('de')" class="flag-icon" alt="DE">
+                <img src="https://flagcdn.com/w40/ru.png" onclick="updateLang('ru')" class="flag-icon" alt="RU">
                 <img src="https://flagcdn.com/w40/cn.png" onclick="updateLang('cn')" class="flag-icon" alt="CN">
             </div>
         </div>
@@ -117,10 +118,10 @@
         </div>
 
         <div class="rounded-3xl overflow-hidden border border-white/10 h-96 mb-8">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.042571243777!2d-110.312933!3d24.14478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86afd30960d1b32d%3A0x6d90a88077c57700!2sIgnacio%20Altamirano%20224%2C%20Zona%20Central%2C%2023000%20La%20Paz%2C%20B.C.S.!5e0!3m2!1sfr!2smx!4v1710000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.6044738779!2d-110.3157!3d24.1426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86afd335606d19cf%3A0x6a6d6302488a09e0!2sC.%20Ignacio%20Altamirano%20224%2C%20Zona%20Central%2C%2023000%20La%20Paz%2C%20B.C.S.!5e0!3m2!1sfr!2smx!4v1710000000000!5m2!1sfr!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         
-        <a href="https://maps.app.goo.gl/9RzY8Lp6p7v8p9z8" target="_blank" class="inline-block bg-white text-black px-12 py-5 rounded-2xl font-black text-xl btn-glow transition uppercase">
+        <a href="https://maps.app.goo.gl/uX3L5S5wQ5UfH8jB9" target="_blank" class="inline-block bg-white text-black px-12 py-5 rounded-2xl font-black text-xl btn-glow transition uppercase">
             <i class="fas fa-location-arrow mr-3"></i> <span id="btn-guide">GUIDE-MOI À LA SALLE</span>
         </a>
     </section>
@@ -161,7 +162,11 @@
         const texts = {
             es: { heroS: "Conviértete en tu propia leyenda.", dailyT: "Pase por Día", dailyD: "Acceso inmediato por un día. Ideal para visitantes.", monthlyT: "Membresía Mensual", monthlyD: "Acceso ilimitado y equipo premium. La mejor opción local.", coachT: "COACHING 1-1", coachD: "Un coach experto siempre presente. Entrenamiento a medida para resultados reales.", mapT: "LOCALIZACIÓN", guide: "LLÉVAME AL GIMNASIO", follow: "SÍGUENOS EN REDES" },
             en: { heroS: "Become your own legend.", dailyT: "Day Pass", dailyD: "One-day full access. Perfect for travelers.", monthlyT: "Monthly Membership", monthlyD: "Unlimited access and premium equipment. Best local option.", coachT: "1-1 COACHING", coachD: "Expert coach always on site. Tailored training for real results.", mapT: "LOCATION", guide: "GUIDE ME TO THE GYM", follow: "FOLLOW US" },
-            fr: { heroS: "Devenez votre propre légende.", dailyT: "Pass Journée", dailyD: "Accès complet pour un jour. Idéal pour les visiteurs.", monthlyT: "Abonnement Mensuel", monthlyD: "Accès illimité et équipement premium. La meilleure option locale.", coachT: "COACHING 1-1", coachD: "Un coach expert toujours présent. Entraînement sur mesure pour des résultats réels.", mapT: "LOCALISATION", guide: "GUIDE-MOI À LA SALLE", follow: "SUIVEZ-NOUS SUR LES RÉSEAUX" }
+            fr: { heroS: "Devenez votre propre légende.", dailyT: "Pass Journée", dailyD: "Accès complet pour un jour. Idéal pour les visiteurs.", monthlyT: "Abonnement Mensuel", monthlyD: "Accès illimité et équipement premium. La meilleure option locale.", coachT: "COACHING 1-1", coachD: "Un coach expert toujours présent. Entraînement sur mesure pour des résultats réels.", mapT: "LOCALISATION", guide: "GUIDE-MOI À LA SALLE", follow: "SUIVEZ-NOUS SUR LES RÉSEAUX" },
+            it: { heroS: "Diventa la tua leggenda.", dailyT: "Pass Giornaliero", dailyD: "Accesso giornaliero completo. Ideale per i visitatori.", monthlyT: "Abbonamento Mensile", monthlyD: "Accesso illimitato e attrezzatura premium. La scelta migliore.", coachT: "COACHING 1-1", coachD: "Un coach esperto sempre presente. Allenamento personalizzato per risultati reali.", mapT: "LOCALIZZAZIONE", guide: "PORTAMI IN PALESTRA", follow: "SEGUICI SUI SOCIAL" },
+            de: { heroS: "Werde zu deiner eigenen Legende.", dailyT: "Tagespass", dailyD: "Ganztägiger Zugang. Ideal für Besucher.", monthlyT: "Monatliche Mitgliedschaft", monthlyD: "Unbegrenzter Zugang und Premium-Equipment. Die beste Wahl.", coachT: "1-1 COACHING", coachD: "Ein Experten-Coach ist immer vor Ort. Maßgeschneidertes Training für echte Ergebnisse.", mapT: "STANDORT", guide: "ZUM GYM NAVIGIEREN", follow: "FOLGE UNS" },
+            ru: { heroS: "Стань собственной легендой.", dailyT: "Дневной абонемент", dailyD: "Полный доступ на один день. Идеально для гостей.", monthlyT: "Месячный абонемент", monthlyD: "Безлимитный доступ и премиальное оборудование. Лучший выбор.", coachT: "КОУЧИНГ 1-1", coachD: "Экспертный тренер всегда на месте. Индивидуальные тренировки для реальных результатов.", mapT: "РАСПОЛОЖЕНИЕ", guide: "МАРШРУТ В ЗАЛ", follow: "ПОДПИСЫВАЙТЕСЬ НА НАС" },
+            cn: { heroS: "成为你自己的传奇。", dailyT: "单日通票", dailyD: "全天访问。非常适合访客。", monthlyT: "月度会员", monthlyD: "无限次访问和高端设备。当地最佳选择。", coachT: "1对1辅导", coachD: "专家教练常驻。量身定制的训练，打造真实效果。", mapT: "位置", guide: "带我去健身房", follow: "关注我们" }
         };
 
         function updateLang(lang) {
