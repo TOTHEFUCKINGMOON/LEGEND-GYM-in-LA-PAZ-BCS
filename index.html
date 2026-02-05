@@ -67,16 +67,16 @@
 <body>
 
     <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5 px-4 md:px-8 py-2 flex justify-between items-center">
-        <img src="./logo.jpg" alt="Logo" class="h-20 w-auto">
+        <img src="./logo.jpg" alt="Logo" class="h-16 md:h-20 w-auto">
 
-        <div class="absolute left-1/2 -translate-x-1/2">
-            <a href="https://www.instagram.com/legend_fitness_center" target="_blank" class="flex items-center gap-2 text-zinc-400 hover:text-white transition group">
-                <i class="fab fa-instagram text-2xl"></i>
-                <span class="text-[10px] md:text-xs font-black tracking-widest uppercase hidden sm:inline group-hover:text-yellow-400 transition">@legend_fitness_center</span>
+        <div class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
+            <a href="https://www.instagram.com/legend_fitness_center" target="_blank" class="flex flex-col md:flex-row items-center gap-0 md:gap-2 text-zinc-400 hover:text-white transition group">
+                <i class="fab fa-instagram text-xl md:text-2xl group-hover:text-yellow-400"></i>
+                <span class="text-[8px] md:text-xs font-black tracking-tighter uppercase text-yellow-400">@legend_fitness_center</span>
             </a>
         </div>
 
-        <div class="flex items-center space-x-3 relative">
+        <div class="flex items-center space-x-2 md:space-x-3 relative">
             <img src="https://flagcdn.com/w40/mx.png" onclick="updateLang('es')" class="flag-icon" alt="ES">
             <img src="https://flagcdn.com/w40/us.png" onclick="updateLang('en')" class="flag-icon" alt="EN">
             <button onclick="toggleLangDrawer()" class="text-white p-1"><i class="fas fa-chevron-down text-xs"></i></button>
@@ -124,7 +124,7 @@
                 <a href="https://wa.me/521234567890" class="w-full bg-yellow-400 text-black py-4 rounded-xl font-black text-center btn-glow transition uppercase">Devenir membre</a>
             </div>
         </div>
-        <video autoplay muted loop playsinline class="w-full h-[400px] rounded-3xl overflow-hidden mb-24 border border-white/10 shadow-2xl">
+        <video autoplay muted loop playsinline class="w-full h-[400px] rounded-3xl overflow-hidden mb-24 border border-white/10 shadow-2xl object-cover">
             <source src="./Pricingsection.mp4" type="video/mp4">
         </video>
     </section>
@@ -157,10 +157,10 @@
         </div>
 
         <div class="rounded-3xl overflow-hidden border border-white/10 h-96 mb-8">
-            <iframe src="http://googleusercontent.com/maps.google.com/23" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113642.435422676!2d-110.3125!3d24.1425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA4JzMzLjAiTiAxMTDCsDE4JzQ1LjAiVw!5e0!3m2!1sen!2smx!4v1644000000000!5m2!1sen!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         
-        <a href="http://googleusercontent.com/maps.google.com/24" target="_blank" class="inline-block bg-white text-black px-12 py-5 rounded-2xl font-black text-xl btn-glow transition uppercase shadow-xl">
+        <a href="https://maps.app.goo.gl/3A5rS8P5Hq3S8v5X7" target="_blank" class="inline-block bg-white text-black px-12 py-5 rounded-2xl font-black text-xl btn-glow transition uppercase shadow-xl">
             <i class="fas fa-location-arrow mr-3"></i> <span id="btn-guide">GUIDE-MOI À LA SALLE</span>
         </a>
     </section>
@@ -208,7 +208,7 @@
             fr: { heroS: "Devenez votre propre légende.", dailyT: "Pass Journée", dailyD: "Accès complet pour un jour. Idéal pour les visiteurs.", monthlyT: "Abonnement Mensuel", monthlyD: "Accès illimité et équipement premium. La meilleure option locale.", coachT: "COACHING 1-1", coachD: "Un coach expert toujours présent. Entraînement sur mesure pour des résultats réels.", mapT: "LOCALISATION", guide: "GUIDE-MOI À LA SALLE", follow: "SUIVEZ-NOUS SUR LES RÉSEAUX" },
             it: { heroS: "Diventa la tua leggenda.", dailyT: "Pass Giornaliero", dailyD: "Accesso giornaliero completo. Ideale per i visitatori.", monthlyT: "Abbonamento Mensile", monthlyD: "Accesso illimitato e attrezzatura premium. La scelta migliore.", coachT: "COACHING 1-1", coachD: "Un coach esperto sempre presente. Allenamento personalizzato per risultati reali.", mapT: "LOCALIZZAZIONE", guide: "PORTAMI IN PALESTRA", follow: "SEGUICI SUI SOCIAL" },
             de: { heroS: "Werde zu deiner eigenen Legende.", dailyT: "Tagespass", dailyD: "Ganztägiger Zugang. Ideal für Besucher.", monthlyT: "Monatliche Mitgliedschaft", monthlyD: "Unbegrenzter Zugang und Premium-Equipment. Die beste Wahl.", coachT: "1-1 COACHING", coachD: "Ein Experten-Coach ist immer vor Ort. Maßgeschneidertes Training für echte Ergebnisse.", mapT: "STANDORT", guide: "ZUM GYM NAVIGIEREN", follow: "FOLGE UNS" },
-            ru: { heroS: "Стань собственной легендой.", dailyT: "Дневной абонемент", dailyD: "Полный доступ на один день. Идеально для гостей.", monthlyT: "Месячный абонемент", monthlyD: "Безлимитный доступ и премиальное оборудование. Лучший выбор.", coachT: "КОУЧИНГ 1-1", coachD: "Экспертный тренер всегда на месте. Индивидуальные тренировки для реальных результатов.", mapT: "РАСПОЛОЖЕНИЕ", guide: "МАРШРУТ В ЗАЛ", follow: "ПОДПИСЫВАЙТЕСЬ НА НАС" },
+            ru: { heroS: "Стань собственной легендой.", dailyT: "Дневной абонемент", dailyD: "Полный доступ на один jour. Идеально для гостей.", monthlyT: "Месячный абонемент", monthlyD: "Безлимитный доступ и премиальное оборудование. Лучший выбор.", coachT: "КОУЧИНГ 1-1", coachD: "Экспертный тренер всегда на месте. Индивидуальные тренировки для реальных результатов.", mapT: "РАСПОЛОЖЕНИЕ", guide: "МАРШРУТ В ЗАЛ", follow: "ПОДПИСЫВАЙТЕСЬ НА НАС" },
             cn: { heroS: "成为你自己的传奇。", dailyT: "单日通票", dailyD: "全天访问。非常适合访客。", monthlyT: "月度会员", monthlyD: "无限次访问和高端设备。当地最佳选择。", coachT: "1对1辅导", coachD: "专家教练常驻。量身定制的训练，打造真实效果。", mapT: "位置", guide: "带我去健身房", follow: "关注我们" }
         };
 
