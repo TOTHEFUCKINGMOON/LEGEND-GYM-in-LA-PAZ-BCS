@@ -14,147 +14,137 @@
         .font-legend { font-family: 'Archivo Black', sans-serif; }
         .bg-card { background-color: #0f0f0f; border: 1px solid #1f1f1f; }
         .btn-glow:hover { box-shadow: 0 0 20px rgba(250, 204, 21, 0.4); }
-        .flag-icon { width: 28px; height: 20px; cursor: pointer; border-radius: 3px; transition: 0.2s; }
-        .flag-icon:hover { transform: scale(1.1); }
+        .flag-icon { width: 24px; height: 18px; cursor: pointer; transition: transform 0.2s; border-radius: 4px; }
         
-        #lang-drawer { display: none; position: absolute; top: 110%; right: 0; background: #111; border: 1px solid #333; padding: 12px; border-radius: 8px; flex-direction: column; gap: 10px; z-index: 100; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        /* Language Drawer */
+        #lang-drawer { display: none; position: absolute; top: 100%; right: 0; background: #111; border: 1px solid #333; padding: 10px; border-radius: 8px; flex-direction: column; gap: 8px; z-index: 100; }
         #lang-drawer.active { display: flex; }
 
-        .comparison-slider { position: relative; width: 100%; height: 450px; overflow: hidden; border-radius: 24px; }
+        /* Slider Before/After */
+        .comparison-slider { position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 24px; }
         .comparison-slider img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
         .img-overlay { width: 50%; overflow: hidden; z-index: 10; border-right: 3px solid var(--accent); }
-        .slider-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 20; width: 44px; height: 44px; background: var(--accent); border-radius: 50%; display: flex; items-center: center; justify-content: center; color: black; cursor: ew-resize; box-shadow: 0 0 15px rgba(250, 204, 21, 0.5); }
+        .slider-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 20; width: 40px; height: 40px; background: var(--accent); border-radius: 50%; display: flex; items-center: center; justify-content: center; color: black; cursor: ew-resize; pointer-events: none; }
         #slider-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 30; }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 bg-black/95 border-b border-white/10 px-6 md:px-12 py-5 flex justify-between items-center backdrop-blur-sm">
-        <div class="flex items-center">
-            <img src="./logo.jpg" alt="LEGEND Logo" class="h-12 md:h-14 w-auto rounded-md shadow-lg border border-white/5">
-        </div>
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5 px-4 md:px-8 py-4 flex justify-between items-center">
+        <img src="./logo.jpg" alt="Logo" class="h-10 w-auto">
 
         <div class="absolute left-1/2 -translate-x-1/2">
-            <a href="https://www.instagram.com/legend_fitness_center" target="_blank" class="text-zinc-400 hover:text-white transition flex items-center gap-3">
+            <a href="https://www.instagram.com/legend_fitness_center" target="_blank" class="text-zinc-400 hover:text-white transition">
                 <i class="fab fa-instagram text-2xl"></i>
-                <span class="hidden lg:inline text-sm font-black tracking-[0.2em] uppercase">@legend_fitness_center</span>
             </a>
         </div>
 
-        <div class="flex items-center space-x-4 relative">
+        <div class="flex items-center space-x-3 relative">
             <img src="https://flagcdn.com/w40/mx.png" onclick="updateLang('es')" class="flag-icon" alt="ES">
             <img src="https://flagcdn.com/w40/us.png" onclick="updateLang('en')" class="flag-icon" alt="EN">
-            <button onclick="toggleLangDrawer()" class="text-zinc-400 hover:text-white ml-2 p-1"><i class="fas fa-chevron-down"></i></button>
+            <button onclick="toggleLangDrawer()" class="text-white"><i class="fas fa-chevron-down text-xs"></i></button>
             
             <div id="lang-drawer">
-                <div class="flex items-center gap-3 cursor-pointer hover:bg-zinc-800 p-2 rounded" onclick="updateLang('fr')"><img src="https://flagcdn.com/w40/fr.png" class="flag-icon"> <span class="text-sm font-bold">FR</span></div>
-                <div class="flex items-center gap-3 cursor-pointer hover:bg-zinc-800 p-2 rounded" onclick="updateLang('it')"><img src="https://flagcdn.com/w40/it.png" class="flag-icon"> <span class="text-sm font-bold">IT</span></div>
-                <div class="flex items-center gap-3 cursor-pointer hover:bg-zinc-800 p-2 rounded" onclick="updateLang('de')"><img src="https://flagcdn.com/w40/de.png" class="flag-icon"> <span class="text-sm font-bold">DE</span></div>
-                <div class="flex items-center gap-3 cursor-pointer hover:bg-zinc-800 p-2 rounded" onclick="updateLang('cn')"><img src="https://flagcdn.com/w40/cn.png" class="flag-icon"> <span class="text-sm font-bold">CN</span></div>
+                <img src="https://flagcdn.com/w40/fr.png" onclick="updateLang('fr')" class="flag-icon" alt="FR">
+                <img src="https://flagcdn.com/w40/it.png" onclick="updateLang('it')" class="flag-icon" alt="IT">
+                <img src="https://flagcdn.com/w40/de.png" onclick="updateLang('de')" class="flag-icon" alt="DE">
+                <img src="https://flagcdn.com/w40/cn.png" onclick="updateLang('cn')" class="flag-icon" alt="CN">
             </div>
         </div>
     </nav>
 
-    <section class="relative h-screen flex flex-col justify-center items-center text-center px-4">
+    <section class="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-60">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover">
                 <source src="./herosection.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#050505]"></div>
         </div>
         <div class="relative z-10">
-            <h1 class="text-8xl md:text-[12rem] font-black tracking-tighter font-legend italic leading-none mb-4">LEGEND</h1>
-            <p id="hero-subtitle" class="text-xl md:text-2xl text-yellow-400 font-black tracking-[0.3em] uppercase">Elite Training Center</p>
+            <h1 class="text-7xl md:text-9xl font-black mb-4 tracking-tighter font-legend">LEGEND</h1>
+            <p id="hero-subtitle" class="text-xl md:text-2xl text-zinc-400 font-light tracking-wide uppercase">Devenez votre propre légende.</p>
         </div>
     </section>
 
     <section id="pricing" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-10 mb-16">
-            <div class="bg-card p-12 rounded-3xl border border-white/5 hover:border-white/20 transition group">
-                <h3 id="daily-title" class="text-zinc-500 font-black uppercase mb-2 tracking-widest">Pase por Día</h3>
-                <div class="text-6xl font-black mb-6 tracking-tighter italic">200<span class="text-xl ml-2">MXN</span></div>
-                <p id="daily-desc" class="text-zinc-400 mb-8 leading-relaxed">Acceso total por un día. Sin contratos. Perfecto para atletas de paso.</p>
-                <a href="https://wa.me/521234567890" class="block text-center border-2 border-white text-white py-4 rounded-xl font-black hover:bg-white hover:text-black transition uppercase">Comprar pase</a>
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <div class="bg-card p-12 rounded-3xl flex flex-col justify-between hover:border-yellow-400/50 transition duration-500">
+                <div>
+                    <h3 id="daily-title" class="text-zinc-500 font-bold uppercase tracking-widest mb-4">Day Pass</h3>
+                    <div class="text-6xl font-black mb-6">200<span class="text-xl">MXN</span></div>
+                    <p id="daily-desc" class="text-zinc-400 mb-8 font-light leading-relaxed">Accès immédiat. Sans engagement. Idéal pour les sportifs de passage.</p>
+                </div>
+                <a href="https://wa.me/521234567890" class="w-full bg-white text-black py-4 rounded-xl font-black text-center btn-glow transition uppercase">Acheter mon pass</a>
             </div>
-            <div class="bg-card p-12 rounded-3xl border-2 border-yellow-400 shadow-[0_0_30px_rgba(250,204,21,0.1)] relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-yellow-400 text-black px-4 py-1 font-black text-xs uppercase italic">Best Choice</div>
-                <h3 id="monthly-title" class="text-yellow-400 font-black uppercase mb-2 tracking-widest">Membresía Mensual</h3>
-                <div class="text-6xl font-black mb-6 tracking-tighter italic text-yellow-400">700<span class="text-xl ml-2 text-white">MXN</span></div>
-                <p id="monthly-desc" class="text-zinc-400 mb-8 leading-relaxed">Acceso ilimitado a todas nuestras áreas y equipo de alto rendimiento.</p>
-                <a href="https://wa.me/521234567890" class="block text-center bg-yellow-400 text-black py-4 rounded-xl font-black btn-glow transition uppercase">Unirse ahora</a>
+            <div class="bg-card p-12 rounded-3xl border-yellow-400 flex flex-col justify-between transform md:-translate-y-4 shadow-2xl shadow-yellow-400/10">
+                <div>
+                    <span class="bg-yellow-400 text-black px-3 py-1 text-xs font-black rounded-full uppercase mb-4 inline-block">Best Seller</span>
+                    <h3 id="monthly-title" class="text-white font-bold uppercase tracking-widest mb-4 mt-2">Monthly Member</h3>
+                    <div class="text-6xl font-black mb-6 text-yellow-400">700<span class="text-xl">MXN</span></div>
+                    <p id="monthly-desc" class="text-zinc-400 mb-8 font-light leading-relaxed">Accès illimité. Équipement premium. La meilleure option pour les locaux.</p>
+                </div>
+                <a href="https://wa.me/521234567890" class="w-full bg-yellow-400 text-black py-4 rounded-xl font-black text-center btn-glow transition uppercase">Devenir membre</a>
             </div>
         </div>
-        <video autoplay muted loop playsinline class="w-full h-[450px] object-cover rounded-3xl border border-white/10 shadow-2xl">
+        <video autoplay muted loop playsinline class="w-full h-[400px] rounded-3xl overflow-hidden mb-24 border border-white/10">
             <source src="./Pricingsection.mp4" type="video/mp4">
         </video>
     </section>
 
-    <section class="bg-zinc-900/40 py-24 px-6 border-y border-white/5">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 id="coach-title" class="text-5xl md:text-7xl font-black mb-6 font-legend italic tracking-tighter">COACHING 1-1</h2>
-            <p id="coach-desc" class="text-zinc-400 text-xl max-w-2xl mx-auto mb-12 leading-relaxed">Transforma tu físico con un programa de élite. Técnica avanzada, nutrición deportiva y seguimiento constante.</p>
+    <section class="bg-zinc-900/30 py-24 px-6 border-y border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 id="coach-title" class="text-5xl font-black mb-8 font-legend tracking-tighter uppercase leading-tight">COACHING 1-1</h2>
+            <p id="coach-desc" class="text-xl text-zinc-400 mb-10 leading-relaxed font-light">Un coach expert présent en permanence. Accompagnement sur mesure pour des résultats garantis.</p>
             
-            <video autoplay muted loop playsinline class="w-full rounded-3xl shadow-2xl border border-white/10 mb-12">
+            <video autoplay muted loop playsinline class="w-full rounded-2xl shadow-2xl border border-white/10 mb-10">
                 <source src="./coaching1-1.mp4" type="video/mp4">
             </video>
 
-            <a href="https://wa.me/521234567890" class="inline-block bg-white text-black px-12 py-5 rounded-2xl font-black text-lg hover:bg-yellow-400 hover:scale-105 transition uppercase tracking-tighter shadow-xl">
-                Reservar mi asesoría
-            </a>
+            <a href="https://wa.me/521234567890" class="inline-block bg-white text-black px-12 py-4 rounded-xl font-black btn-glow transition uppercase">Réserver une séance</a>
         </div>
     </section>
 
-    <section class="py-24 px-6 max-w-6xl mx-auto text-center">
-        <h2 id="map-title" class="text-4xl font-black mb-12 uppercase italic tracking-tighter">Ubicación</h2>
+    <section class="py-24 px-6 max-w-5xl mx-auto text-center">
+        <h2 id="map-title" class="text-3xl font-black mb-12 font-legend uppercase">LOCALISATION</h2>
         
-        <div class="comparison-slider mb-12 shadow-2xl border border-white/10">
+        <div class="comparison-slider mb-8 shadow-2xl border border-white/10">
             <img src="./logo.jpg" alt="Inside">
-            <div class="img-overlay">
+            <div class="img-overlay absolute inset-0">
                 <img src="./504056549_18319558963231342_4486628568853749454_n.jpg" alt="Outside" style="width: 200%; max-width: none;">
             </div>
             <div class="slider-handle"><i class="fas fa-arrows-alt-h"></i></div>
             <input type="range" min="0" max="100" value="50" id="slider-input">
         </div>
 
-        <div class="rounded-3xl overflow-hidden h-[400px] mb-10 border border-white/10 shadow-2xl">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.613346517173!2d-110.3164!3d24.14!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86afd32df140b987%3A0x6b738c8c7c9c0!2sIgnacio%20Altamirano%20224%2C%20Zona%20Central%2C%2023000%20La%20Paz%2C%20B.C.S.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+        <div class="rounded-3xl overflow-hidden border border-white/10 h-96 mb-8">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.604624131238!2d-110.315!3d24.145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86afd337d1d5757d%3A0x6e09e1335e32d69e!2zQ2wuIElnbmFjaW8gQWx0YW1pcmFubyAyMjQsIFpvbmEgQ2VudHJvLCAyMzAwMCBMYSBQYXosIEIuQy5TLiwgTWV4aXF1ZQ!5e0!3m2!1sfr!2sfr!4v1710000000000!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         
-        <a href="https://maps.app.goo.gl/9Zp..." target="_blank" class="inline-flex items-center gap-4 bg-white text-black px-10 py-5 rounded-2xl font-black text-lg uppercase hover:bg-yellow-400 transition shadow-2xl">
-            <i class="fas fa-location-arrow"></i> <span id="btn-guide">Abrir en Google Maps</span>
+        <a href="https://maps.app.goo.gl/9" target="_blank" class="inline-block bg-white text-black px-12 py-5 rounded-2xl font-black text-xl btn-glow transition uppercase">
+            <i class="fas fa-location-arrow mr-3"></i> <span id="btn-guide">GUIDE-MOI À LA SALLE</span>
         </a>
     </section>
 
-    <section class="py-24 px-6 bg-zinc-950">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-black mb-16 text-center tracking-[0.3em] uppercase italic text-zinc-600">Community @LEGEND</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                <img src="./socialproof_left.png" class="aspect-[9/16] object-cover rounded-2xl w-full border border-white/5">
-                <video autoplay muted loop playsinline class="aspect-[9/16] object-cover rounded-2xl w-full border border-white/5 shadow-2xl shadow-yellow-400/5">
-                    <source src="./socialproof_middle.mp4" type="video/mp4">
-                </video>
-                <img src="./socialproof_right.jpg" class="aspect-[9/16] object-cover rounded-2xl w-full border border-white/5">
-            </div>
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-black mb-12 font-legend uppercase text-center">COMMUNITY @LEGEND</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <img src="./socialproof_left.png" class="aspect-[9/16] object-cover rounded-2xl w-full border border-white/10">
+            <video autoplay muted loop playsinline class="aspect-[9/16] object-cover rounded-2xl w-full border border-white/10">
+                <source src="./socialproof_middle.mp4" type="video/mp4">
+            </video>
+            <img src="./socialproof_right.jpg" class="aspect-[9/16] object-cover rounded-2xl w-full border border-white/10">
         </div>
     </section>
 
-    <footer class="py-20 bg-black border-t border-white/10 text-center px-6">
-        <div class="mb-10">
-            <p id="footer-follow" class="text-sm font-black uppercase tracking-[0.4em] text-zinc-600 mb-8">SÍGUENOS EN REDES</p>
-            <div class="flex justify-center space-x-10 text-3xl text-white">
-                <a href="#" class="hover:text-yellow-400 transition-all hover:scale-125"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/legend_fitness_center" class="hover:text-yellow-400 transition-all hover:scale-125"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-yellow-400 transition-all hover:scale-125"><i class="fab fa-facebook"></i></a>
-                <a href="https://wa.me/521234567890" class="hover:text-yellow-400 transition-all hover:scale-125"><i class="fab fa-whatsapp"></i></a>
-            </div>
+    <footer class="py-12 border-t border-white/5 text-center px-6">
+        <p id="footer-text" class="text-zinc-500 font-bold uppercase tracking-widest mb-6">Suivez nous sur les réseaux</p>
+        <div class="flex justify-center space-x-8 mb-8 text-2xl">
+            <a href="#" class="text-zinc-400 hover:text-white transition"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/legend_fitness_center" class="text-zinc-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-zinc-400 hover:text-white transition"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/521234567890" class="text-zinc-400 hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <img src="./logo.jpg" class="h-10 mx-auto mb-8 opacity-40 grayscale hover:opacity-100 transition duration-700">
-        <p class="text-zinc-800 text-xs font-bold tracking-widest italic leading-loose">
-            © 2026 LEGEND GYM | HIGH PERFORMANCE TRAINING<br>LA PAZ BCS MEXICO
-        </p>
+        <p class="text-zinc-600 text-[10px] uppercase tracking-widest leading-loose">© 2026 LEGEND GYM | La Paz, Mexico</p>
     </footer>
 
     <script>
@@ -169,9 +159,9 @@
         });
 
         const texts = {
-            es: { heroS: "Elite Training Center", dailyT: "Pase por Día", dailyD: "Acceso total por un día. Sin contratos. Perfecto para atletas de paso.", monthlyT: "Membresía Mensual", monthlyD: "Acceso ilimitado a todas nuestras áreas y equipo de alto rendimiento.", coachT: "COACHING 1-1", coachD: "Transforma tu físico con un programa de élite. Técnica avanzada, nutrición deportiva y seguimiento constante.", mapT: "Ubicación", guide: "Abrir en Google Maps", follow: "SÍGUENOS EN REDES" },
-            en: { heroS: "Elite Training Center", dailyT: "Day Pass", dailyD: "Full access for one day. No strings attached. Perfect for visiting athletes.", monthlyT: "Monthly Membership", monthlyD: "Unlimited access to all areas and high-performance equipment.", coachT: "1-1 COACHING", coachD: "Transform your physique with an elite program. Advanced technique, sports nutrition, and constant tracking.", mapT: "Location", guide: "Open in Google Maps", follow: "FOLLOW US" },
-            fr: { heroS: "Centre d'Entraînement d'Élite", dailyT: "Pass Journée", dailyD: "Accès complet pour une journée. Sans engagement. Idéal pour les athlètes de passage.", monthlyT: "Abonnement Mensuel", monthlyD: "Accès illimité à toutes nos zones et équipements de haute performance.", coachT: "COACHING 1-1", coachD: "Transformez votre physique avec un programme d'élite. Technique avancée, nutrition sportive et suivi constant.", mapT: "Localisation", guide: "Ouvrir Google Maps", follow: "SUIVEZ-NOUS" }
+            es: { heroS: "Conviértete en tu propia leyenda.", dailyT: "Pase por Día", dailyD: "Acceso inmediato por un día. Ideal para visitantes.", monthlyT: "Membresía Mensual", monthlyD: "Acceso ilimitado y equipo premium. La mejor opción local.", coachT: "COACHING 1-1", coachD: "Un coach experto siempre presente. Entrenamiento a medida para resultados reales.", mapT: "LOCALIZACIÓN", guide: "LLÉVAME AL GIMNASIO", follow: "SÍGUENOS EN REDES" },
+            en: { heroS: "Become your own legend.", dailyT: "Day Pass", dailyD: "One-day full access. Perfect for travelers.", monthlyT: "Monthly Membership", monthlyD: "Unlimited access and premium equipment. Best local option.", coachT: "1-1 COACHING", coachD: "Expert coach always on site. Tailored training for real results.", mapT: "LOCATION", guide: "GUIDE ME TO THE GYM", follow: "FOLLOW US" },
+            fr: { heroS: "Devenez votre propre légende.", dailyT: "Pass Journée", dailyD: "Accès complet pour un jour. Idéal pour les visiteurs.", monthlyT: "Abonnement Mensuel", monthlyD: "Accès illimité et équipement premium. La meilleure option locale.", coachT: "COACHING 1-1", coachD: "Un coach expert toujours présent. Entraînement sur mesure pour des résultats réels.", mapT: "LOCALISATION", guide: "GUIDE-MOI À LA SALLE", follow: "SUIVEZ-NOUS SUR LES RÉSEAUX" }
         };
 
         function updateLang(lang) {
@@ -185,7 +175,7 @@
             document.getElementById('coach-desc').innerText = t.coachD;
             document.getElementById('map-title').innerText = t.mapT;
             document.getElementById('btn-guide').innerText = t.guide;
-            document.getElementById('footer-follow').innerText = t.follow;
+            document.getElementById('footer-text').innerText = t.follow;
             document.getElementById('lang-drawer').classList.remove('active');
         }
     </script>
